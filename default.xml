@@ -786,5 +786,6 @@
 
   <include name="snippets/remove.xml" />
   <include name="snippets/pleh.xml" />
+  <include name="snippets/lineage.xml" />
 
 </manifest>
