@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="pleh"
+           fetch="ssh://git@github.com/ThePlehgroundProject"
+           revision="ten" />
+
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <!-- General -->
+  <project path="bionic" name="bionic" remote="pleh" />
+  <project path="bootable/recovery" name="bootable_recovery" remote="pleh" />
+  <project path="manifest" name="manifest" remote="pleh" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" remote="pleh">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" remote="pleh">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Device -->
+  <project path="device/pleh/sepolicy" name="device_pleh_sepolicy" remote="pleh" />
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="pleh" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy" remote="pleh" revision="ten-legacy-um"/>
+
+  <!-- External -->
+  <project path="external/tinycompress" name="external_tinycompress" remote="pleh" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" remote="pleh" />
+  <project path="hardware/pleh/interfaces" name="hardware_pleh_interfaces" remote="pleh" />
+
+  <!-- Framework -->
+  <project path="frameworks/av" name="frameworks_av" remote="pleh" />
+  <project path="frameworks/base" name="frameworks_base" remote="pleh" />
+  <project path="frameworks/native" name="frameworks_native" remote="pleh" />
+
+  <!-- Packages repos -->
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" remote="pleh" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="pleh" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="pleh" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" remote="pleh" />
+  <project path="system/netd" name="system_netd" remote="pleh" />
+  <project path="system/vold" name="system_vold" remote="pleh" />
+
+  <!-- Vendor -->
+  <project path="vendor/pleh" name="vendor_pleh" remote="pleh" />
+
+</manifest>
